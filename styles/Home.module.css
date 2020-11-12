@@ -122,6 +122,7 @@
 }
 
 .article {
+  margin: 1rem;
   padding: 1.5rem;
 
   width: 300px;

@@ -60,7 +60,7 @@ export default function Home() {
               <article key={game.sys.id} className={styles.article}>
                 <Image
                   alt={game.fields.alt}
-                  src={"https://" + img.fields.file.url}
+                  src={`https:${img.fields.file.url}`}
                   width={img.fields.file.details.image?.width || 0}
                   height={img.fields.file.details.image?.height || 0}
                 />
