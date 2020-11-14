@@ -1,0 +1,12 @@
+{
+  "short_name": "Let's Play RD",
+  "name": "Let's Play RD",
+  "description": "Let's Play RD",
+  "icons": [],
+  "start_url": "/?source=pwa",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3367D6",
+  "shortcuts": []
+}

@@ -41,6 +41,7 @@ export default function Home() {
       <Head>
         <title>Let's Play RD</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.webmanifest" />
       </Head>
 
       <main className={styles.main}>
