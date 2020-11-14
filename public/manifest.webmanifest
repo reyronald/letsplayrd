@@ -2,7 +2,16 @@
   "short_name": "Let's Play RD",
   "name": "Let's Play RD",
   "description": "Let's Play RD",
-  "icons": [],
+  "icons": [
+    {
+      "src": "/icons/192.svg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/512.svg",
+      "sizes": "512x512"
+    }
+  ],
   "start_url": "/?source=pwa",
   "background_color": "#3367D6",
   "display": "standalone",
