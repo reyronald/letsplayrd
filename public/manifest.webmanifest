@@ -4,6 +4,11 @@
   "description": "Let's Play RD",
   "icons": [
     {
+      "src": "/icons/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
       "src": "/icons/192.svg",
       "sizes": "192x192"
     },
