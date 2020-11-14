@@ -1,42 +1,40 @@
-import React from "react";
-import Head from "next/head";
-import Image from "next/image";
-import * as contentful from "contentful";
+import React from 'react'
+import Head from 'next/head'
+import Image from 'next/image'
+import * as contentful from 'contentful'
 
-import styles from "../styles/Home.module.css";
+import styles from '../styles/Home.module.css'
 
 type Game = {
-  name: string;
-  description: string;
-  alt: string;
-  date: string;
-  image: Array<contentful.Asset>;
-};
+  name: string
+  description: string
+  alt: string
+  date: string
+  image: Array<contentful.Asset>
+}
 
 const client = contentful.createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || "",
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN || "",
-});
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || '',
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN || '',
+})
 
 export default function Home() {
   async function fetchEntries() {
-    const entries = await client.getEntries<Game>();
-    if (entries.items) return entries.items;
+    const entries = await client.getEntries<Game>()
+    if (entries.items) return entries.items
   }
 
-  const [games, setGames] = React.useState<contentful.Entry<Game>[]>([]);
+  const [games, setGames] = React.useState<contentful.Entry<Game>[]>([])
 
   React.useEffect(() => {
     async function getGames() {
-      const allGames = await fetchEntries();
+      const allGames = await fetchEntries()
       if (allGames) {
-        setGames([...allGames]);
+        setGames([...allGames])
       }
     }
-    getGames();
-  }, []);
-
-  console.log({ games });
+    getGames()
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -52,9 +50,9 @@ export default function Home() {
 
         <div className={styles.grid}>
           {games.map((game) => {
-            const img = game.fields.image[0];
+            const img = game.fields.image[0]
             if (!img) {
-              return null;
+              return null
             }
             return (
               <article key={game.sys.id} className={styles.article}>
@@ -67,7 +65,7 @@ export default function Home() {
                 <h2>{game.fields.name}</h2>
                 <p>{game.fields.description}</p>
               </article>
-            );
+            )
           })}
 
           {/* <a href="https://nextjs.org/docs" className={styles.card}>
@@ -102,5 +100,5 @@ export default function Home() {
 
       <footer className={styles.footer}></footer>
     </div>
-  );
+  )
 }
