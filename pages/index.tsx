@@ -86,6 +86,25 @@ export default function Home() {
 
         <p className={styles.description}>Bienvenido</p>
 
+        <p className={styles.description}>
+          Recibe un correo de prueba colocando tu direcció debajo
+        </p>
+
+        <form className={styles.form} onSubmit={onSendEmail}>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required={true}
+            placeholder="Correo electrónico"
+            aria-label="Correo electrónico"
+            className={styles.emailInput}
+          />
+          <button type="submit" className={styles.button}>
+            Enviar correo
+          </button>
+        </form>
+
         <div className={styles.grid}>
           {games.map((game) => {
             const img = game.fields.image[0]
@@ -106,21 +125,6 @@ export default function Home() {
             )
           })}
         </div>
-
-        <form className={styles.form} onSubmit={onSendEmail}>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required={true}
-            placeholder="Email"
-            aria-label="email"
-            className={styles.emailInput}
-          />
-          <button type="submit" className={styles.button}>
-            Send Email
-          </button>
-        </form>
       </main>
 
       <footer className={styles.footer}></footer>

@@ -47,7 +47,6 @@
 }
 
 .title {
-  margin: 0;
   line-height: 1.15;
   font-size: 4rem;
 }
@@ -81,11 +80,14 @@
 .article {
   margin: 1rem;
   padding: 1.5rem;
-
   width: 300px;
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.article h2 {
+  margin-top: 32px;
 }
 
 .form {
@@ -93,7 +95,9 @@
 }
 
 .emailInput {
-  min-width: 35ch;
+  min-width: 30ch;
+  padding: 0 0.5rem;
+  font-size: 1rem;
 }
 
 .button {
