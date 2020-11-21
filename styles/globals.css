@@ -1,6 +1,9 @@
 :root {
   --color-background: white;
   --color-text: black;
+  --color-button: rgb(62, 109, 232);
+  --color-button-hover: #517cea;
+  --color-button-text: white;
 }
 
 @media (prefers-color-scheme: dark) {

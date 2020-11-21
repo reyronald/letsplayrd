@@ -36,6 +36,43 @@ export default function Home() {
     getGames()
   }, [])
 
+  async function onSendEmail(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const form = event.currentTarget
+    const emailNode = form.elements.namedItem('email')
+    if (emailNode && emailNode instanceof HTMLInputElement) {
+      const email = emailNode.value
+      const payload = { email }
+      try {
+        const response = await fetch('/api/sendEmail', {
+          headers: {
+            'Content-type': 'application/json',
+          },
+          method: 'POST',
+          body: JSON.stringify(payload),
+        })
+        if (response.ok) {
+          alert(
+            `Correo enviado exitosamente. Revise su bandeja de entrada en ${email}.`,
+          )
+        } else {
+          const text = await response.text()
+          const json = safeJSONparse(text)
+          const fetchError = new FetchError({
+            status: response.status,
+            statusText: response.statusText,
+            text,
+            json,
+          })
+          throw fetchError
+        }
+      } catch (error) {
+        console.error({ error })
+        alert('Ha ocurrido un error, no se ha logrado enviar el correo.')
+      }
+    }
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -69,9 +106,54 @@ export default function Home() {
             )
           })}
         </div>
+
+        <form className={styles.form} onSubmit={onSendEmail}>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required={true}
+            placeholder="Email"
+            aria-label="email"
+            className={styles.emailInput}
+          />
+          <button type="submit" className={styles.button}>
+            Send Email
+          </button>
+        </form>
       </main>
 
       <footer className={styles.footer}></footer>
     </div>
   )
+}
+
+function safeJSONparse<T>(text: string): T | null {
+  try {
+    const parsed = JSON.parse(text)
+    return parsed
+  } catch (error) {
+    return null
+  }
+}
+
+class FetchError extends Error {
+  status: number
+  statusText: string
+  text: string
+  json: unknown
+
+  constructor(arg: {
+    status: number
+    statusText: string
+    text: string
+    json: unknown
+  }) {
+    super(arg.statusText)
+
+    this.status = arg.status
+    this.statusText = arg.statusText
+    this.text = arg.text
+    this.json = arg.json
+  }
 }

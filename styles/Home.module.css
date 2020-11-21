@@ -87,3 +87,25 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
+
+.form {
+  display: flex;
+}
+
+.emailInput {
+  min-width: 35ch;
+}
+
+.button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: none;
+  background: var(--color-button);
+  color: var(--color-button-text);
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--color-button-hover);
+}
