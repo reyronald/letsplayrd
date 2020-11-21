@@ -1,6 +1,9 @@
 :root {
   --color-background: white;
   --color-text: black;
+  --color-button: rgb(62, 109, 232);
+  --color-button-hover: #517cea;
+  --color-button-text: white;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,6 +21,15 @@ body {
   color: var(--color-text);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+h1,
+h2 {
+  margin-bottom: 2rem;
+}
+
+p {
+  margin-bottom: 2rem;
 }
 
 a {
