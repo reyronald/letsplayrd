@@ -1,1 +1,5 @@
 .next
+*.js.map
+public/sw.js
+public/workbox-*js
+
