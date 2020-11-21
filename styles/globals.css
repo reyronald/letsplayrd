@@ -1,15 +1,38 @@
 :root {
   --color-background: white;
+  --color-background: radial-gradient(
+    circle,
+    rgba(252, 252, 252, 1) 0%,
+    rgba(252, 252, 252, 1) 66%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  --color-background: radial-gradient(
+    circle,
+    #f8f8f8 0%,
+    #f8f8f8 66%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  /*  */
   --color-text: black;
   --color-button: rgb(62, 109, 232);
   --color-button-hover: #517cea;
   --color-button-text: white;
+
+  --color-article-bg: white;
+  --color-article-text: black;
+
+  --box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: rgb(40, 40, 40);
     --color-text: white;
+
+    --box-shadow: rgba(255, 255, 255, 0) 0px 0px 0px 0px,
+      rgba(255, 255, 255, 0) 0px 0px 0px 0px,
+      rgba(255, 255, 255, 0.45) 0px 25px 50px -4px;
   }
 }
 
@@ -17,7 +40,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background-color: var(--color-background);
+  background: var(--color-background);
   color: var(--color-text);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;

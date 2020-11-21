@@ -81,13 +81,28 @@ export default function Home() {
         <link rel="manifest" href="/manifest.webmanifest" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Let's play RD</h1>
+      <header className={styles.header}>
+        <div className={styles.headerBackgroundContainer}>
+          {/* 
+            Photo by cottonbro from Pexels
+            https://www.pexels.com/photo/girl-in-red-dress-playing-a-wooden-blocks-3662667/ 
+          */}
+          <Image
+            src="/pexels-cottonbro-3662667.jpg"
+            alt="niños jugando con juguetes"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
 
+        <h1 className={styles.title}>Let's play RD</h1>
+      </header>
+
+      <main className={styles.main}>
         <p className={styles.description}>Bienvenido</p>
 
         <p className={styles.description}>
-          Recibe un correo de prueba colocando tu direcció debajo
+          Recibe un correo de prueba colocando tu dirección debajo
         </p>
 
         <form className={styles.form} onSubmit={onSendEmail}>
@@ -113,12 +128,14 @@ export default function Home() {
             }
             return (
               <article key={game.sys.id} className={styles.article}>
-                <Image
-                  alt={game.fields.alt}
-                  src={`https:${img.fields.file.url}`}
-                  width={img.fields.file.details.image?.width || 0}
-                  height={img.fields.file.details.image?.height || 0}
-                />
+                <div className={styles.articleImgContainer}>
+                  <Image
+                    alt={game.fields.alt}
+                    src={`https:${img.fields.file.url}`}
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
                 <h2>{game.fields.name}</h2>
                 <p>{game.fields.description}</p>
               </article>
@@ -126,8 +143,6 @@ export default function Home() {
           })}
         </div>
       </main>
-
-      <footer className={styles.footer}></footer>
     </div>
   )
 }
